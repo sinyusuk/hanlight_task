@@ -1,0 +1,16 @@
+<%- include('./partials/header') %>
+
+<div class="container mt-5">
+    <script> 
+
+    </script>
+        <form action="/update/todo/<%= todo._id %>" class="d-flex" method="POST">
+            <input type="text" name="todo" id="" 
+            class="form-control" value="<%= todo.todo %>" placeholder="수정할 내용">
+    
+            <input type="submit" value="Update Todo" 
+            class="btn btn-sm btn-primary mx-2"><br>
+        </form>
+</div>
+    
+<%- include('./partials/footer') %>

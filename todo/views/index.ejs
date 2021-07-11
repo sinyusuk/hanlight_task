@@ -1,0 +1,28 @@
+<%-include('./partials/header')%> 
+
+<div class="container mt-5">
+    <form action="/add/todo" method="POST" class="d-flex">
+        <input type="text" name="todo" id="" 
+        class="form-control" placeholder="Todos!">
+
+        <input type="submit" value="Add Todo" 
+        class="btn btn-sm btn-primary mx-2"><br>
+    </form>
+
+    <ul class="list-group my-5">
+        <% todo.forEach(todos =>{ %> 
+            <li class="list-group-item"><%= todos.todo %>[완료여부: <%= todos.isCompleted %>]
+                <form action="/update/isCompleted/<%= todos._id %>" method="POST" class="d-flex">
+                    <input type="button" value="✓" class="btn btn-primary mx-2">
+                    <a href="/update/todo/<%= todos._id %>" 
+                        class="btn btn-warning btn-sm">Update</a>
+                    <a href="/delete/todo/<%= todos._id %>" 
+                        class="btn btn-danger btn-sm mx-2">Delete</a>
+                </form>
+                
+            </li>
+         <% }) %>
+    </ul>
+</div>
+<%-include("./partials/footer")%> 
+
